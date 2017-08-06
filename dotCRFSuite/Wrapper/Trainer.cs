@@ -14,7 +14,7 @@ namespace dotCRFSuite.Wrapper
             _trainer.select("lbfgs", "crf1d");
         }
 
-        public void Append(IEnumerable<IEnumerable<KeyValuePair<String, System.Object>>> xseq, IEnumerable<String> yseq)
+        public void Append(IEnumerable<IEnumerable<KeyValuePair<string, object>>> xseq, IEnumerable<string> yseq)
         {
             var _yseq = new StringList(yseq.ToList());
 
