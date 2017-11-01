@@ -10,3 +10,11 @@ Copy-Item "crfsuite_module\export_wrap.cpp" -Destination "dotCRFSuite\GeneratedC
 
 Remove-Item "dotCRFSuite\GeneratedCode\export_wrap.cpp"
 Remove-Item "dotCRFSuite\GeneratedCode\export_wrap.h"
+
+Get-ChildItem "dotCRFSuite\GeneratedCode" -Recurse -Filter *.cs |
+ForEach-Object { 
+    $path = "$($_.FullName)"
+    $newText = (get-content $path) -replace 'public class', 'internal class'
+    $newText > $path
+}
+
