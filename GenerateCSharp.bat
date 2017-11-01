@@ -1,4 +1,4 @@
-set swigPath=E:\Systems\alkozko\Downloads\swigwin-3.0.12\swigwin-3.0.12\
+set swigPath=%1
 
 %swigPath%\swig.exe -c++ -csharp -I"resources\crfsuite\include" -o "dotCRFSuite\dotCRFSuite\GeneratedCode\export_wrap.cpp" "resources\crfsuite\swig\export.i"
 
