@@ -22,3 +22,5 @@ $path = "dotCRFSuite\GeneratedCode\crfsuitePINVOKE.cs"
 $newText = (get-content $path).Replace('DllImport("crfsuite"', 'DllImport(@"crfsuite_module.dll"')
 $newText > $path
 
+Copy-Item "crfsuite_module\Win32\Release\crfsuite_module.dll" -Destination "dotCRFSuite\dlls\Win32\"
+Copy-Item "crfsuite_module\x64\Release\crfsuite_module.dll" -Destination "dotCRFSuite\dlls\x64\"
