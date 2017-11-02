@@ -14,7 +14,11 @@ Remove-Item "dotCRFSuite\GeneratedCode\export_wrap.h"
 Get-ChildItem "dotCRFSuite\GeneratedCode" -Recurse -Filter *.cs |
 ForEach-Object { 
     $path = "$($_.FullName)"
-    $newText = (get-content $path) -replace 'public class', 'internal class'
+    $newText = (get-content $path).Replace('public class', 'internal class')
     $newText > $path
 }
+
+$path = "dotCRFSuite\GeneratedCode\crfsuitePINVOKE.cs"
+$newText = (get-content $path).Replace('DllImport("crfsuite"', 'DllImport(@"crfsuite_module.dll"')
+$newText > $path
 
